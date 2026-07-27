@@ -121,9 +121,9 @@ YYYYMMDD-描述[-v版本].扩展名
 
 ```
 1. 更新 个人管理系统/README.md
-2. 同步到 ~/.claude/skills/pkm-organizer/references/pkm-system.md
-3. 同步到 ~/.claude/skills/pkm-organizer/SKILL.md（如涉及规则变更）
-4. cd ~/.claude/skills/pkm-organizer && git add -A && git commit -m "描述" && git push
+2. 同步到 ~/.claude/skills/personal-management-system/references/personal-management-system.md
+3. 同步到 ~/.claude/skills/personal-management-system/SKILL.md（如涉及规则变更）
+4. cd ~/.claude/skills/personal-management-system && git add -A && git commit -m "描述" && git push
 5. 询问用户服务器地址和目标路径后，执行 rsync 同步
 ```
 
@@ -131,5 +131,5 @@ YYYYMMDD-描述[-v版本].扩展名
 
 ## 权威参考
 
-完整的分类架构、命名规范、同步策略、跨平台映射等详细内容，参考 `references/pkm-system.md`。
+完整的分类架构、命名规范、同步策略、跨平台映射等详细内容，参考 `references/personal-management-system.md`。
 当有歧义或需要确认细则时，优先查阅该参考文件。
