@@ -106,13 +106,14 @@ YYYYMMDD-描述[-v版本].扩展名
 
 ## 维护规则
 
-**Skill 与 README 必须同步更新。** 任何对分类体系、命名规范、同步策略的改动，需要同时更新以下三个文件：
+**READ~~ME 改动时自动触发同步。** 当用户修改 `个人管理系统/README.md` 时，自动将变更同步到：
 
-1. `SKILL.md` — 技能核心逻辑
-2. `references/pkm-system.md` — 技能参考文件
-3. `个人管理系统/README.md` — 知识库入口文档
+1. `~/.claude/skills/pkm-organizer/references/pkm-system.md`
+2. `~/.claude/skills/pkm-organizer/SKILL.md`（如涉及分类/命名/同步规则）
 
-修改后执行 `git push`，再 `rsync` 到服务器，确保三端一致。
+然后执行 `git add -A && git commit -m "sync: README更新" && git push`。
+
+**反向同理**：修改 skill 文件时，也要同步回 README。确保三端一致。
 
 ## 权威参考
 
