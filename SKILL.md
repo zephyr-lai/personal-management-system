@@ -124,7 +124,7 @@ YYYYMMDD-描述[-v版本].扩展名
 2. 同步到 ~/.claude/skills/pkm-organizer/references/pkm-system.md
 3. 同步到 ~/.claude/skills/pkm-organizer/SKILL.md（如涉及规则变更）
 4. cd ~/.claude/skills/pkm-organizer && git add -A && git commit -m "描述" && git push
-5. rsync 到服务器 lzping@39.105.138.211:/data/backup/个人管理系统/
+5. 询问用户服务器地址和目标路径后，执行 rsync 同步
 ```
 
 **反向同理**：修改 skill 规则时，也要提示是否同步回 README 和服务器。
