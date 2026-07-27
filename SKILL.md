@@ -1,7 +1,7 @@
 ---
-name: personal-management
+name: personal-management-system
 description: >
-  个人管理体系（Personal Management System）。当用户提到文件分类、整理、命名、该放哪里、
+  个人管理体系（Personal Management System）。将十槽分类、命名规范、同步策略应用于文件组织。当用户提到文件分类、整理、命名、该放哪里、
   按个人管理规范、同步策略、大文件处理、目录结构组织等问题时，使用此技能。
   也适用于用户新增内容时不确定归属分类、想检查文件命名是否符合规范、
   需要了解跨平台同步配置（Notion/ima/文件系统）等场景。
