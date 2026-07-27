@@ -120,8 +120,8 @@ YYYYMMDD-描述[-v版本].扩展名
 用户确认后，按以下顺序执行：
 
 ```
-1. 更新 个人管理系统/README.md
-2. (自动) references/ 为 README 的软链接，无需手动同步
+1. 更新 references/personal-management-system.md（技能参考文件，即源头）
+2. README 是其软链接，自动同步
 3. 同步到 SKILL.md（如涉及规则变更）
 4. cd ~/.claude/skills/personal-management-system && git add -A && git commit -m "描述" && git push
 5. 询问用户服务器地址和目标路径后，执行 rsync 同步
