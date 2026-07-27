@@ -14,16 +14,12 @@ description: >
 
 ## 启动检查
 
-每次被调用时，首先检查 references 软链接是否正常：
+每次被调用时，首先检查以下文件是否存在并可读：
 
-- 若 `references/personal-management-system.md` 可用 → 继续执行
-- 若不存在或断链 → 询问用户个人管理系统根目录路径，然后执行：
+- `个人管理系统/README.md`
+- `references/personal-management-system.md`
 
-```bash
-ln -s <用户提供的路径>/README.md ~/.claude/skills/personal-management-system/references/personal-management-system.md
-```
-
-注意：README 是真实文件（Windows 兼容），skill 参考文件是软链接。编辑 README 后 skill 自动同步。
+若缺失，则从另一个复制恢复。两文件内容应始终一致。
 
 ## 核心职责
 
@@ -133,8 +129,8 @@ YYYYMMDD-描述[-v版本].扩展名
 用户确认后，按以下顺序执行：
 
 ```
-1. 更新 个人管理系统/README.md（真实文件，Windows 可打开）
-2. references/ 是 README 的软链接，自动同步
+1. 更新 个人管理系统/README.md
+2. cp 到 references/personal-management-system.md，两份保持一致
 3. 同步到 SKILL.md（如涉及规则变更）
 4. cd ~/.claude/skills/personal-management-system && git add -A && git commit -m "描述" && git push
 5. 询问用户服务器地址和目标路径后，执行 rsync 同步
