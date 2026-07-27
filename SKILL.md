@@ -14,12 +14,15 @@ description: >
 
 ## 启动检查
 
-每次被调用时，首先检查以下文件是否存在并可读：
+每次被调用时，首先检查 README 和 reference 两文件是否一致：
 
-- `个人管理系统/README.md`
-- `references/personal-management-system.md`
+```bash
+diff 个人管理系统/README.md references/personal-management-system.md
+```
 
-若缺失，则从另一个复制恢复。两文件内容应始终一致。
+- 一致 → 继续执行
+- 不一致 → 以修改时间较新的为准，`cp` 覆盖旧的一方，并提示用户"已自动同步"
+- 某方缺失 → 从另一方 `cp` 恢复
 
 ## 核心职责
 
