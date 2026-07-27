@@ -106,14 +106,28 @@ YYYYMMDD-描述[-v版本].扩展名
 
 ## 维护规则
 
-**READ~~ME 改动时自动触发同步。** 当用户修改 `个人管理系统/README.md` 时，自动将变更同步到：
+**提交前检查同步。** 当用户明确表示要提交/同步当前修改时，检查改动是否涉及以下内容：
 
-1. `~/.claude/skills/pkm-organizer/references/pkm-system.md`
-2. `~/.claude/skills/pkm-organizer/SKILL.md`（如涉及分类/命名/同步规则）
+- 十槽分类体系（目录结构、命名）
+- 文件命名规范
+- 同步策略
+- 跨平台映射规则
 
-然后执行 `git add -A && git commit -m "sync: README更新" && git push`。
+如果涉及上述内容，**必须先提示用户确认**再执行，提示语：
 
-**反向同理**：修改 skill 文件时，也要同步回 README。确保三端一致。
+> 本次修改涉及 [分类体系/命名规范/同步策略]，是否需要同步更新 README、Skill 并提交到服务器？
+
+用户确认后，按以下顺序执行：
+
+```
+1. 更新 个人管理系统/README.md
+2. 同步到 ~/.claude/skills/pkm-organizer/references/pkm-system.md
+3. 同步到 ~/.claude/skills/pkm-organizer/SKILL.md（如涉及规则变更）
+4. cd ~/.claude/skills/pkm-organizer && git add -A && git commit -m "描述" && git push
+5. rsync 到服务器 lzping@39.105.138.211:/data/backup/个人管理系统/
+```
+
+**反向同理**：修改 skill 规则时，也要提示是否同步回 README 和服务器。
 
 ## 权威参考
 
