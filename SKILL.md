@@ -121,8 +121,8 @@ YYYYMMDD-描述[-v版本].扩展名
 
 ```
 1. 更新 个人管理系统/README.md
-2. 同步到 ~/.claude/skills/personal-management-system/references/personal-management-system.md
-3. 同步到 ~/.claude/skills/personal-management-system/SKILL.md（如涉及规则变更）
+2. (自动) references/ 为 README 的软链接，无需手动同步
+3. 同步到 SKILL.md（如涉及规则变更）
 4. cd ~/.claude/skills/personal-management-system && git add -A && git commit -m "描述" && git push
 5. 询问用户服务器地址和目标路径后，执行 rsync 同步
 ```
