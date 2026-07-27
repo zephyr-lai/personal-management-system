@@ -12,6 +12,19 @@ description: >
 
 将用户的十槽分类体系、文件命名规范、同步策略应用于文件组织任务。
 
+## 启动检查
+
+每次被调用时，首先检查 `个人管理系统/README.md` 是否存在：
+
+- 若存在 → 继续执行
+- 若不存在 → 询问用户个人管理系统根目录路径，然后执行：
+
+```bash
+ln -s ~/.claude/skills/personal-management-system/references/personal-management-system.md <用户提供的路径>/README.md
+```
+
+此操作确保 README 始终可见，且与 skill 保持同步。
+
 ## 核心职责
 
 1. **分类决策** — 当用户给出一个文件或内容描述时，判断它应该放在哪个分类
