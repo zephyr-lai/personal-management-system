@@ -1,5 +1,5 @@
 ---
-name: pkm-organizer
+name: personal-management
 description: >
   个人管理体系（Personal Management System）。当用户提到文件分类、整理、命名、该放哪里、
   按个人管理规范、同步策略、大文件处理、目录结构组织等问题时，使用此技能。
