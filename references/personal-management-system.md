@@ -216,13 +216,19 @@
 
 ## 八、Skill 同步规则
 
-**Skill 与 README 必须同步更新。** 任何改动需要同时更新：
-1. `personal-management-system` 技能的 `SKILL.md`
-2. 技能的 `references/` 为本文的软链接，自动同步
-3. 本 `README.md`
+**Skill 与 README 必须同步更新。** 任何改动需要同时更新以下文件：
 
-修改后 `git push` 到 GitHub，再 `rsync` 到服务器，确保三端一致。
+1. `个人管理系统/README.md`（本文）
+2. `~/.claude/skills/personal-management-system/references/personal-management-system.md`
+3. `~/.claude/skills/personal-management-system/SKILL.md`（如涉及规则变更）
 
-## 九、软链接说明
+修改后执行：
 
-本 README 是 `~/.claude/skills/personal-management-system/references/personal-management-system.md` 的软链接。看到这个文件，说明 skill 已安装并生效。
+```bash
+cd ~/.claude/skills/personal-management-system
+git add -A && git commit -m "描述" && git push
+```
+
+再 `rsync` 到服务器（地址由用户提供），确保三端一致。
+
+技能启动时会自动用 `diff` 检查 README 和 reference 文件是否一致，不一致则自动以较新的为准同步。
