@@ -146,23 +146,17 @@ Windows 本地无原生 rsync，通过 WSL 直接调用。
 
 ```powershell
 # 1. 先 dry-run 预览
-wsl rsync -avzh --dry-run `
-  --exclude='00-个人档案/' --exclude='06-健康医疗/' `
-  --exclude='07-财务管理/' --exclude='99-大型文件/' `
-  --exclude='.git/' `
+wsl rsync -avzh --dry-run --exclude-from=.rsyncignore `
   /mnt/c/<用户路径>/个人管理系统/ `
   <用户>@<服务器地址>:/<目标路径>/
 
 # 2. 确认目标地址无误后，去掉 --dry-run 执行
-wsl rsync -avzh --progress `
-  --exclude='00-个人档案/' --exclude='06-健康医疗/' `
-  --exclude='07-财务管理/' --exclude='99-大型文件/' `
-  --exclude='.git/' `
+wsl rsync -avzh --progress --exclude-from=.rsyncignore `
   /mnt/c/<用户路径>/个人管理系统/ `
   <用户>@<服务器地址>:/<目标路径>/
 ```
 
-> **注意**：第二步执行前必须确认目标地址正确，避免覆盖错误位置。
+> 忽略规则定义在 `.rsyncignore` 文件中，与 `.gitignore` 用法类似。
 
 ---
 
